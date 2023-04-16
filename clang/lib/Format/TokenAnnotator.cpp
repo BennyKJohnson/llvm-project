@@ -4475,11 +4475,16 @@ bool TokenAnnotator::spaceRequiredBefore(const AnnotatedLine &Line,
   if (Line.Type == LT_ObjCMethodDecl) {
     if (Left.is(TT_ObjCMethodSpecifier))
       return true;
-    if (Left.is(tok::r_paren) && canBeObjCSelectorComponent(Right)) {
-      // Don't space between ')' and <id> or ')' and 'new'. 'new' is not a
-      // keyword in Objective-C, and '+ (instancetype)new;' is a standard class
-      // method declaration.
-      return false;
+   if (Left.is(tok::r_paren) && Right.is(tok::identifier)) {
+      int rParenCount = 0; // Only apply to the first method name portion
+      for (FormatToken *previousToken = Right.Previous; previousToken;
+          previousToken = previousToken->Previous) {
+        if (previousToken->is(TT_ObjCMethodSpecifier))
+          break;
+        if (previousToken->is(tok::r_paren))
+          rParenCount++;
+      }
+      return Style.ObjCSpaceBeforeMethodDeclaration && (rParenCount < 2);
     }
   }
   if (Line.Type == LT_ObjCProperty &&

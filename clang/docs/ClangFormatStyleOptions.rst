@@ -3887,6 +3887,11 @@ the configuration (without a prefix: ``Auto``).
   Add a space after ``@property`` in Objective-C, i.e. use
   ``@property (readonly)`` instead of ``@property(readonly)``.
 
+**ObjCSpaceBeforeMethodDeclaration** (``bool``)
+  Add a space before an Objective-C method declaration, i.e. use
+  ``- (void) method`` instead of ``- (void)method``.
+
+
 .. _ObjCSpaceBeforeProtocolList:
 
 **ObjCSpaceBeforeProtocolList** (``Boolean``) :versionbadge:`clang-format 3.7` :ref:`¶ <ObjCSpaceBeforeProtocolList>`
