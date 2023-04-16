@@ -3894,6 +3894,13 @@ the configuration (without a prefix: ``Auto``).
 
 .. _ObjCSpaceBeforeProtocolList:
 
+**ObjCSpaceBeforeParameter** (``bool``)
+  Add a space before an Objective-C method parameter, i.e. use
+  ``[callee MethodWithParameter: input1]`` instead of ``[callee MethodWithParameter:input1]``.
+
+
+.. _ObjCSpaceBeforeProtocolList:
+
 **ObjCSpaceBeforeProtocolList** (``Boolean``) :versionbadge:`clang-format 3.7` :ref:`¶ <ObjCSpaceBeforeProtocolList>`
   Add a space in front of an Objective-C protocol list, i.e. use
   ``Foo <Protocol>`` instead of ``Foo<Protocol>``.

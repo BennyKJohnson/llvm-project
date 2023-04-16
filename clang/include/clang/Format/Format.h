@@ -2962,6 +2962,10 @@ struct FormatStyle {
   /// <tt>- (void) method</tt> instead of <tt>- (void)method</tt>.
   bool ObjCSpaceBeforeMethodDeclaration;
 
+  /// \brief Add a space before an Objective-C method parameter, i.e. use
+  /// <tt>- [callee methodWithParameter: arg1] instead of <tt>[callee methodWithParameter:arg1]</tt>.
+  bool ObjCSpaceBeforeParameter;
+
   /// Add a space in front of an Objective-C protocol list, i.e. use
   /// ``Foo <Protocol>`` instead of ``Foo<Protocol>``.
   /// \version 3.7
@@ -4351,6 +4355,7 @@ struct FormatStyle {
                R.ObjCBreakBeforeNestedBlockParam &&
            ObjCSpaceAfterProperty == R.ObjCSpaceAfterProperty &&
            ObjCSpaceBeforeMethodDeclaration == R.ObjCSpaceBeforeMethodDeclaration &&
+           ObjCSpaceBeforeParameter == R.ObjCSpaceBeforeParameter &&
            ObjCSpaceBeforeProtocolList == R.ObjCSpaceBeforeProtocolList &&
            PackConstructorInitializers == R.PackConstructorInitializers &&
            PenaltyBreakAssignment == R.PenaltyBreakAssignment &&

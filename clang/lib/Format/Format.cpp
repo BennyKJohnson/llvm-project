@@ -952,6 +952,7 @@ template <> struct MappingTraits<FormatStyle> {
                    Style.ObjCBreakBeforeNestedBlockParam);
     IO.mapOptional("ObjCSpaceAfterProperty", Style.ObjCSpaceAfterProperty);
     IO.mapOptional("ObjCSpaceBeforeMethodDeclaration", Style.ObjCSpaceBeforeMethodDeclaration);
+    IO.mapOptional("ObjCSpaceBeforeParameter", Style.ObjCSpaceBeforeParameter);
     IO.mapOptional("ObjCSpaceBeforeProtocolList",
                    Style.ObjCSpaceBeforeProtocolList);
     IO.mapOptional("PackConstructorInitializers",
@@ -1417,6 +1418,7 @@ FormatStyle getLLVMStyle(FormatStyle::LanguageKind Language) {
   LLVMStyle.ObjCBreakBeforeNestedBlockParam = true;
   LLVMStyle.ObjCSpaceAfterProperty = false;
   LLVMStyle.ObjCSpaceBeforeMethodDeclaration = false;
+  LLVMStyle.ObjCSpaceBeforeParameter = false;
   LLVMStyle.ObjCSpaceBeforeProtocolList = true;
   LLVMStyle.PackConstructorInitializers = FormatStyle::PCIS_BinPack;
   LLVMStyle.PointerAlignment = FormatStyle::PAS_Right;
@@ -1724,6 +1726,7 @@ FormatStyle getMozillaStyle() {
   MozillaStyle.IndentCaseLabels = true;
   MozillaStyle.ObjCSpaceAfterProperty = true;
   MozillaStyle.ObjCSpaceBeforeMethodDeclaration = false;
+  MozillaStyle.ObjCSpaceBeforeParameter = false;
   MozillaStyle.ObjCSpaceBeforeProtocolList = false;
   MozillaStyle.PenaltyReturnTypeOnItsOwnLine = 200;
   MozillaStyle.PointerAlignment = FormatStyle::PAS_Left;

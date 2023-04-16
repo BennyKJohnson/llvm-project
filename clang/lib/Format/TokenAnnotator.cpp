@@ -4492,6 +4492,12 @@ bool TokenAnnotator::spaceRequiredBefore(const AnnotatedLine &Line,
     return false;
   }
 
+  // Add space between parameter name and colon in ObjC method declarations and calls
+  bool isObjcParameter = Right.is(tok::l_paren) || Right.is(tok::identifier) || Right.is(tok::l_square) || Right.is(tok::numeric_constant);
+  if ((Line.Type == LT_ObjCMethodDecl || Line.Type  == LT_Other) && Left.is(tok::colon) && isObjcParameter) {
+    return Style.ObjCSpaceBeforeParameter;
+  }
+
   if (Right.isOneOf(TT_TrailingReturnArrow, TT_LambdaArrow) ||
       Left.isOneOf(TT_TrailingReturnArrow, TT_LambdaArrow)) {
     return true;
